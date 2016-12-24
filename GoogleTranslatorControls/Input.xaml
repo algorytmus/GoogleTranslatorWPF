@@ -1,0 +1,34 @@
+﻿<UserControl x:Class="GoogleTranslatorControls.Input"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" d:DesignHeight="174" d:DesignWidth="392">
+    <UserControl.Resources >
+        <Int32Collection x:Key="limits" />
+    </UserControl.Resources>
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="10"/>
+            <ColumnDefinition />
+            <ColumnDefinition Width="10"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition MinHeight="10" Height="Auto"/>
+            <RowDefinition />
+            <RowDefinition MinHeight="10" Height="Auto"/>
+        </Grid.RowDefinitions>
+        <Border Background="Gray" Grid.Column="1" Grid.Row="1" Panel.ZIndex="1" Width="Auto" >
+            <Border.BitmapEffect>
+                <DropShadowBitmapEffect Color="#CA2C2D2F" Direction="50" ShadowDepth="3" Opacity="1" Softness="3" />
+            </Border.BitmapEffect>
+            <TextBox Name="rtexboxInput" Text="{Binding Source}" MinHeight="100" MinWidth="350" Width="Auto" Panel.ZIndex="2"/>
+            
+        </Border>
+        <Button Command="{Binding ClearInputTextCommand}" Name="butClearText" Panel.ZIndex="3" Grid.Column="1" Grid.Row="1" MaxHeight="30" MaxWidth="30" ToolTip="Clear text" HorizontalAlignment="Right" Margin="0,5,5,0" VerticalAlignment="Top" Cursor="Hand">
+            <StackPanel Orientation="Horizontal">
+                <Image Name="rtexboxClearText"  Source="/GoogleTranslatorControls;component/Resources/clear.png"  />
+            </StackPanel>
+        </Button>
+        </Grid>
+</UserControl>

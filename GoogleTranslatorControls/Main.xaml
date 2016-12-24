@@ -1,0 +1,71 @@
+﻿<UserControl x:Class="GoogleTranslatorControls.Main"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:GoogleTranslatorControls"
+             mc:Ignorable="d" 
+             d:DesignHeight="317" d:DesignWidth="906">
+    <UserControl.InputBindings>
+        <KeyBinding Gesture="Ctrl+T" Command="{Binding TranslateTextCommand}"/>
+    </UserControl.InputBindings>
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="10"/>
+            <ColumnDefinition />
+            <ColumnDefinition Width="10"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="20"/>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="20"/>
+        </Grid.RowDefinitions>
+        
+        <Grid Grid.Column="1" Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="10"/>
+                <ColumnDefinition />
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition MinWidth="120" Width="Auto"/>
+                <ColumnDefinition MinWidth="40" Width="Auto"/>
+                <ColumnDefinition MinWidth="120" Width="Auto"/>
+                <ColumnDefinition MinWidth="100" Width="Auto"/>
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition />
+                <ColumnDefinition Width="10"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="20"/>
+                <RowDefinition Height="Auto" MinHeight="30"/>
+                <RowDefinition Height="20"/>
+            </Grid.RowDefinitions>
+            <TextBlock Grid.Column="1" Grid.Row="1" FontSize="16" Canvas.Top="4" Canvas.Left="12" VerticalAlignment="Center">Translator</TextBlock>
+            <local:ChooseLanguageDropDown x:Name="chLDDSourceLanguage" Grid.Column="3" Grid.Row="1" Prefix="From: " SelectedLanguage="{Binding SourceLanguage}" ChooseCommand="{Binding ChooseSourceLanguageCommand}" Cursor="Hand"></local:ChooseLanguageDropDown>
+            <Button Grid.Column="4" ToolTip="Exchange languages" Command="{Binding SwapLanguagesCommand}"  Grid.Row="1" Height="25" Width="25">
+                <Image Source="/GoogleTranslatorControls;component/Resources/exchange.png"></Image>
+            </Button>
+            <local:ChooseLanguageDropDown Grid.Column="5" Grid.Row="1" Prefix="To: " ChooseCommand="{Binding ChooseDestinationLanguageCommand}" SelectedLanguage="{Binding DestinationLanguage}" Cursor="Hand"></local:ChooseLanguageDropDown>
+            <Button Grid.Column="6" ToolTip="Translate" Grid.Row="1" Height="25" Width="60" Cursor="Hand" Command="{Binding TranslateTextCommand}">
+                <TextBlock Text="Translate" Width="Auto"/>
+            </Button>
+            <local:ChooseLanguageDropDown Grid.Column="8" Grid.Row="1" Prefix="Lang: " SelectedLanguage="{Binding LanguageVersion}" HorizontalAlignment="Right" MinWidth="120" ChooseCommand="{Binding ChooseSourceLanguageCommand}" Cursor="Hand"></local:ChooseLanguageDropDown>
+        </Grid>
+        <Grid Grid.Column="1" Grid.Row="2" >
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="10"/>
+                <ColumnDefinition />
+                <ColumnDefinition Width="10"/>
+                <ColumnDefinition />
+                <ColumnDefinition Width="10"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="20"/>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="20"/>
+            </Grid.RowDefinitions>
+            <local:Input Grid.Column="1" Grid.Row="1"/>
+            <local:Output Grid.Column="3" Grid.Row="1"/>
+        </Grid>
+        </Grid>
+</UserControl>

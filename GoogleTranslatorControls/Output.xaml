@@ -1,0 +1,32 @@
+﻿<UserControl x:Class="GoogleTranslatorControls.Output"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" d:DesignWidth="499" d:DesignHeight="168">
+        <Grid >
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="10" />
+                <ColumnDefinition />
+                <ColumnDefinition Width="10"  />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="10" />
+                <RowDefinition />
+                <RowDefinition Height="10" />
+        </Grid.RowDefinitions>
+        <StackPanel Grid.Column="1" Grid.Row="1" Height="Auto">
+            <Border Background="Gray" Panel.ZIndex="3">
+                <Border.BitmapEffect>
+                    <DropShadowBitmapEffect Color="#CA2C2D2F" Direction="50" ShadowDepth="1" Opacity="1" Softness="3" />
+                </Border.BitmapEffect>
+                <TextBlock Text="{Binding ResultTranslation}" Name="tebOutput" MinHeight="100" MinWidth="350" VerticalAlignment="Stretch" Background="White" Panel.ZIndex="2"/>
+            </Border>
+        </StackPanel>
+        <Button Command="{Binding CopyToClipboardOutputTextCommand}" Name="butClearText" HorizontalAlignment="Right" Margin="0,5,5,0" MaxHeight="30" MaxWidth="30" Grid.Column="1" Grid.Row="1" VerticalAlignment="Top" ToolTip="Copy to Clipboard" Cursor="Hand" >
+            <StackPanel Orientation="Horizontal">
+                <Image Source="/GoogleTranslatorControls;component/Resources/clipboard.png"  />
+            </StackPanel>
+        </Button>
+        </Grid>
+</UserControl>
